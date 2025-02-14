@@ -1,0 +1,4 @@
+Nombre del sistema: ED09012096P303
+Versión: Windows 10 Pro
+Memoria: 32437.51 MB
+Número de CPUs: 20
