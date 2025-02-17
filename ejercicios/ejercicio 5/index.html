@@ -28,15 +28,22 @@
         import React from "https://esm.sh/react@18.2.0";
         import ReactDOM from "https://esm.sh/react-dom@18.2.0/client";
 
+        const Button = ({ dataId, children }) => {
+            return React.createElement('button', { 'data-id': dataId }, children);
+        };
+
+        const renderButtons = () => {
+            const button1 = React.createElement(Button, { dataId: 123 }, 'Button 1');
+            const button2 = React.createElement(Button, { dataId: 456 }, 'Button 2');
+            const button3 = React.createElement(Button, { dataId: 789 }, 'Button 3');
+            return [button1, button2, button3];
+        };
+
         const appDomElement = document.getElementById("app");
+        const root = ReactDOM.createRoot(appDomElement);
+        const buttons = renderButtons();
 
-        const root = ReactDOM.createRoot(appDomElement)
-
-        const button = React.createElement('button', { 'data-id': 123 }, "button");
-        const button2 = React.createElement('button', { 'data-id': 123 }, "button");
-        const button3 = React.createElement('button', { 'data-id': 123 }, "button");
-        const app = React.createElement('div', null, [button, button2, button3]);
-        root.render(app);
+        root.render(React.createElement('div', null, buttons));
     </script>
     <div id="app"></div>
 </body>
